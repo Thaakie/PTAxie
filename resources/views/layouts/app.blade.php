@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -34,8 +34,8 @@
                         }
                     },
                     fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                        display: ['"Space Grotesk"', 'sans-serif'],
+                        sans: ['"Fredoka"', 'sans-serif'],
+                        display: ['"Fredoka"', 'sans-serif'],
                     }
                 }
             }
@@ -89,15 +89,18 @@
                     </div>
                 </a>
 
-                <!-- Navigation Links Capsule -->
-                <nav class="hidden md:flex items-center gap-1 bg-slate-100/90 p-1.5 rounded-full border border-slate-200">
-                    <a href="{{ route('home') }}" class="px-5 py-2 rounded-full text-xs font-semibold transition-all {{ request()->routeIs('home') ? 'bg-white text-slate-900 shadow-sm font-bold' : 'text-slate-600 hover:text-slate-900' }}">
+                <!-- Navigation Links Capsule with sliding pill indicator -->
+                <nav id="nav-capsule" class="relative hidden md:flex items-center bg-slate-100/90 p-1.5 rounded-full border border-slate-200">
+                    <!-- Sliding background indicator -->
+                    <span id="nav-indicator" class="absolute top-1.5 bottom-1.5 rounded-full bg-white shadow-sm transition-all duration-300 ease-out pointer-events-none"></span>
+
+                    <a href="{{ route('home') }}" data-nav="beranda" class="nav-item relative z-10 px-5 py-2 rounded-full text-xs transition-colors duration-200 {{ request()->routeIs('home') && !request()->has('category') ? 'text-slate-900 font-bold active-tab' : 'text-slate-600 hover:text-slate-900 font-semibold' }}">
                         Beranda
                     </a>
-                    <a href="{{ route('public.catalog') }}" class="px-5 py-2 rounded-full text-xs font-semibold transition-all {{ request()->routeIs('public.catalog') ? 'bg-white text-slate-900 shadow-sm font-bold' : 'text-slate-600 hover:text-slate-900' }}">
+                    <a href="{{ route('home') }}#katalog" data-nav="katalog" class="nav-item relative z-10 px-5 py-2 rounded-full text-xs font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200 {{ request()->has('category') ? 'text-slate-900 font-bold active-tab' : '' }}">
                         Katalog Produk
                     </a>
-                    <a href="{{ route('home') }}#tentang" class="px-5 py-2 rounded-full text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all">
+                    <a href="#tentang" data-nav="tentang" class="nav-item relative z-10 px-5 py-2 rounded-full text-xs font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200">
                         Tentang Kami
                     </a>
                 </nav>
@@ -143,7 +146,7 @@
     </main>
 
     <!-- Clean Tech Footer (Gitye Style) -->
-    <footer class="bg-white border-t border-slate-200 mt-20">
+    <footer id="tentang" class="bg-white border-t border-slate-200 mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
                 <div class="md:col-span-2">
@@ -199,5 +202,84 @@
         </div>
     </footer>
 
+    <!-- Interactive Navigation Sliding Pill Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const capsule = document.getElementById('nav-capsule');
+            if (!capsule) return;
+            const indicator = document.getElementById('nav-indicator');
+            const navItems = capsule.querySelectorAll('.nav-item');
+
+            function moveIndicatorTo(elem) {
+                if (!elem) {
+                    indicator.style.opacity = '0';
+                    return;
+                }
+                const capsuleRect = capsule.getBoundingClientRect();
+                const elemRect = elem.getBoundingClientRect();
+                indicator.style.left = `${elemRect.left - capsuleRect.left}px`;
+                indicator.style.width = `${elemRect.width}px`;
+                indicator.style.opacity = '1';
+            }
+
+            function getActiveTab() {
+                const hash = window.location.hash;
+                if (hash === '#katalog') {
+                    return capsule.querySelector('[data-nav="katalog"]');
+                } else if (hash === '#tentang') {
+                    return capsule.querySelector('[data-nav="tentang"]');
+                }
+                return capsule.querySelector('.active-tab') || navItems[0];
+            }
+
+            let currentActive = getActiveTab();
+            moveIndicatorTo(currentActive);
+
+            navItems.forEach(item => {
+                item.addEventListener('mouseenter', () => moveIndicatorTo(item));
+                item.addEventListener('click', () => {
+                    navItems.forEach(i => {
+                        i.classList.remove('active-tab', 'text-slate-900', 'font-bold');
+                        i.classList.add('text-slate-600', 'font-semibold');
+                    });
+                    item.classList.add('active-tab', 'text-slate-900', 'font-bold');
+                    item.classList.remove('text-slate-600');
+                    currentActive = item;
+                    moveIndicatorTo(item);
+                });
+            });
+
+            capsule.addEventListener('mouseleave', () => moveIndicatorTo(currentActive));
+
+            // Scroll spy for smooth indicator sync
+            window.addEventListener('scroll', () => {
+                const katalogSection = document.getElementById('katalog');
+                const tentangSection = document.getElementById('tentang');
+                const scrollY = window.scrollY + 120;
+
+                if (tentangSection && scrollY >= tentangSection.offsetTop) {
+                    const target = capsule.querySelector('[data-nav="tentang"]');
+                    if (target && currentActive !== target) {
+                        currentActive = target;
+                        moveIndicatorTo(target);
+                    }
+                } else if (katalogSection && scrollY >= katalogSection.offsetTop) {
+                    const target = capsule.querySelector('[data-nav="katalog"]');
+                    if (target && currentActive !== target) {
+                        currentActive = target;
+                        moveIndicatorTo(target);
+                    }
+                } else if (window.scrollY < 300) {
+                    const target = capsule.querySelector('[data-nav="beranda"]');
+                    if (target && currentActive !== target) {
+                        currentActive = target;
+                        moveIndicatorTo(target);
+                    }
+                }
+            }, { passive: true });
+
+            window.addEventListener('resize', () => moveIndicatorTo(currentActive));
+        });
+    </script>
 </body>
 </html>
