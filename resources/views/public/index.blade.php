@@ -1,117 +1,152 @@
 @extends('layouts.app')
 
-@section('title', 'Axion Tech - Modern Gaming & Desk Setup Gear')
+@section('title', 'Axion Tech - Modern Desk Setup & Computer Accessories')
 
 @section('content')
-    <!-- HERO / BANNER SECTION -->
-    <section class="relative overflow-hidden py-16 lg:py-24 border-b border-slate-800">
-        <div class="absolute inset-0 cyber-grid opacity-40 pointer-events-none"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute top-1/4 right-10 w-80 h-80 bg-electric-500/15 rounded-full blur-3xl pointer-events-none"></div>
-
+    <!-- HERO SECTION (Gitye Clean Editorial Style) -->
+    <section class="relative overflow-hidden pt-12 pb-20 lg:pt-16 lg:pb-28 gitye-hero-bg border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-3xl mx-auto">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-cyan-500/30 text-cyan-400 text-xs font-mono font-semibold uppercase tracking-wider mb-6 glow-cyan">
-                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                    Modern Tech &amp; Desk Setup Gear
-                </div>
-
-                <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
-                    Tingkatkan Setup Kerja &amp; Gaming ke <span class="bg-gradient-to-r from-cyan-400 via-electric-400 to-cyan-300 bg-clip-text text-transparent">Level Maksimal</span>
-                </h1>
-
-                <!-- Deskripsi Usaha Wajib -->
-                <p class="text-base sm:text-lg text-slate-300 leading-relaxed mb-8 font-normal">
-                    <strong class="text-white font-semibold">Axion Tech (PT Akses Digital Mandiri)</strong> adalah penyedia perlengkapan komputer dan aksesoris desk setup terbaik untuk meningkatkan produktivitas dan estetika ruang kerja Anda.
-                </p>
-
-                <div class="flex flex-wrap items-center justify-center gap-4">
-                    <a href="#katalog" class="px-7 py-3.5 rounded-xl font-bold text-sm bg-gradient-to-r from-cyan-500 to-electric-600 text-navy-900 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-105 transition-all duration-200">
-                        <i class="fa-solid fa-cart-shopping me-2"></i> Jelajahi Produk
-                    </a>
-                    <a href="{{ route('admin.products.index') }}" class="px-7 py-3.5 rounded-xl font-bold text-sm bg-slate-800 text-slate-200 border border-slate-700 hover:border-cyan-500/50 hover:bg-slate-750 transition-all">
-                        <i class="fa-solid fa-gear me-2 text-cyan-400"></i> Kelola Inventaris
-                    </a>
-                </div>
-
-                <!-- Highlights Badges -->
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-12 pt-8 border-t border-slate-800/60 text-left">
-                    <div class="flex items-center gap-3">
-                        <i class="fa-solid fa-truck-fast text-cyan-400 text-xl"></i>
-                        <div>
-                            <div class="text-xs font-bold text-white">Pengiriman Cepat</div>
-                            <div class="text-[11px] text-slate-400 font-mono">Ke Seluruh Indonesia</div>
-                        </div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left: Typography & Business Purpose -->
+                <div class="lg:col-span-7">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold mb-6">
+                        <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+                        Official Store &bull; Mechanical Keyboards &amp; Desk Setup
                     </div>
-                    <div class="flex items-center gap-3">
-                        <i class="fa-solid fa-shield-halved text-electric-400 text-xl"></i>
-                        <div>
-                            <div class="text-xs font-bold text-white">Garansi Resmi</div>
-                            <div class="text-[11px] text-slate-400 font-mono">Hingga 2 Tahun</div>
-                        </div>
+
+                    <h1 class="text-4xl sm:text-6xl font-display font-bold text-slate-900 tracking-tight leading-[1.12] mb-6">
+                        Modern Minimalist <br class="hidden sm:inline">
+                        <span class="text-brand-600">Desk Setup Gear</span> for Peak Flow.
+                    </h1>
+
+                    <!-- Deskripsi Usaha Wajib UTS -->
+                    <p class="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-xl">
+                        <strong class="text-slate-900 font-semibold">Axion Tech (PT Akses Digital Mandiri)</strong> adalah penyedia perlengkapan komputer dan aksesoris desk setup terbaik untuk meningkatkan produktivitas dan estetika ruang kerja Anda.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-4">
+                        <a href="#katalog" class="px-7 py-3.5 rounded-full font-bold text-sm bg-slate-900 hover:bg-brand-600 text-white shadow-lg shadow-slate-900/10 hover:shadow-brand-500/20 hover:-translate-y-0.5 transition-all">
+                            Jelajahi Katalog <i class="fa-solid fa-arrow-right ms-2 text-xs"></i>
+                        </a>
+                        <a href="{{ route('admin.products.index') }}" class="px-6 py-3.5 rounded-full font-semibold text-sm bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 transition-all">
+                            Kelola Inventaris
+                        </a>
                     </div>
-                    <div class="flex items-center gap-3">
-                        <i class="fa-solid fa-cube text-cyan-400 text-xl"></i>
+
+                    <!-- Mini Stat / Highlights Row -->
+                    <div class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-slate-200/80">
                         <div>
-                            <div class="text-xs font-bold text-white">100% Original</div>
-                            <div class="text-[11px] text-slate-400 font-mono">Build Quality Premium</div>
+                            <div class="text-2xl font-display font-bold text-slate-900">100%</div>
+                            <div class="text-xs text-slate-500 mt-0.5 font-medium">Garansi Resmi Brand</div>
                         </div>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <i class="fa-solid fa-headset text-electric-400 text-xl"></i>
                         <div>
-                            <div class="text-xs font-bold text-white">Konsultasi Setup</div>
-                            <div class="text-[11px] text-slate-400 font-mono">Fast Response via WA</div>
+                            <div class="text-2xl font-display font-bold text-slate-900">48 Jam</div>
+                            <div class="text-xs text-slate-500 mt-0.5 font-medium">Pengiriman Kilat Aman</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-display font-bold text-slate-900">Top Tier</div>
+                            <div class="text-xs text-slate-500 mt-0.5 font-medium">Kualitas Switch &amp; Mat</div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Right: Clean Minimal Product Showcase Card (Gitye Style) -->
+                <div class="lg:col-span-5">
+                    <div class="relative">
+                        <!-- Decorative Abstract Soft Shapes -->
+                        <div class="absolute -top-10 -right-10 w-72 h-72 bg-blue-100/70 rounded-full blur-3xl pointer-events-none"></div>
+                        <div class="absolute -bottom-10 -left-10 w-60 h-60 bg-indigo-100/60 rounded-full blur-2xl pointer-events-none"></div>
+
+                        <div class="relative bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xl shadow-slate-200/50">
+                            <div class="flex items-center justify-between pb-4 mb-6 border-b border-slate-100">
+                                <div>
+                                    <span class="text-[11px] font-bold uppercase tracking-wider text-brand-600">Featured Setup</span>
+                                    <h3 class="text-lg font-display font-bold text-slate-900">Curated Workstation</h3>
+                                </div>
+                                <span class="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-xs">
+                                    <i class="fa-solid fa-sparkles"></i>
+                                </span>
+                            </div>
+
+                            <div class="aspect-[4/3] rounded-2xl bg-gradient-to-tr from-slate-100 via-blue-50/60 to-slate-50 overflow-hidden flex items-center justify-center p-6 border border-slate-100 mb-6">
+                                @if(file_exists(public_path('images/LOGOTECH.jpeg')))
+                                    <img src="{{ asset('images/LOGOTECH.jpeg') }}" alt="Axion Hardware Setup" class="w-full h-full object-cover rounded-xl shadow-sm">
+                                @else
+                                    <i class="fa-solid fa-keyboard text-5xl text-blue-300"></i>
+                                @endif
+                            </div>
+
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between text-sm">
+                                    <span class="font-semibold text-slate-800">Axion Stealth Mechanical</span>
+                                    <span class="font-display font-bold text-brand-600">Rp 1.250.000</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs text-slate-500">
+                                    <span>Material: Aluminium &amp; PBT</span>
+                                    <span class="text-emerald-600 font-semibold"><i class="fa-solid fa-circle-check me-1"></i> Ready Stock</span>
+                                </div>
+                                <a href="#katalog" class="block w-full py-2.5 text-center rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition-all mt-4">
+                                    Lihat Seluruh Koleksi
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- KATALOG PRODUK & FILTER -->
-    <section id="katalog" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- SECTION KATALOG PRODUK & FILTER -->
+    <section id="katalog" class="py-16 lg:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <!-- Filter Header -->
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 pb-6 border-b border-slate-800">
+        <!-- Filter Header Clean Editorial -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 pb-6 border-b border-slate-200">
             <div>
-                <span class="text-xs font-mono uppercase tracking-widest text-cyan-400 font-bold">Hardware &amp; Accessories</span>
-                <h2 class="text-3xl font-extrabold text-white mt-1">Daftar Produk Unggulan</h2>
+                <span class="text-xs font-bold uppercase tracking-wider text-brand-600">Hardware &amp; Accessories</span>
+                <h2 class="text-3xl font-display font-bold text-slate-900 mt-1">Katalog Produk Pilihan</h2>
+                <p class="text-xs text-slate-500 mt-1">Peralatan keyboard, alas meja cordura, mouse ultralight, dan aksesoris meja.</p>
             </div>
 
-            <!-- Tab Kategori Filter -->
-            <div class="flex flex-wrap items-center gap-2">
-                <a href="{{ route('home') }}#katalog" 
-                   class="px-4 py-2 rounded-lg text-xs font-mono font-bold transition-all {{ empty($selectedCategory) ? 'bg-cyan-500 text-navy-900 shadow-lg shadow-cyan-500/30' : 'bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700' }}">
-                    Semua Produk
-                </a>
-                @foreach($categories as $category)
-                    <a href="{{ route('home', ['category' => $category->slug]) }}#katalog" 
-                       class="px-4 py-2 rounded-lg text-xs font-mono font-bold transition-all {{ $selectedCategory === $category->slug ? 'bg-cyan-500 text-navy-900 shadow-lg shadow-cyan-500/30' : 'bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700' }}">
-                        {{ $category->name }}
-                        <span class="ms-1 px-1.5 py-0.5 rounded text-[10px] {{ $selectedCategory === $category->slug ? 'bg-navy-900/30 text-navy-900' : 'bg-slate-900 text-cyan-400' }}">
-                            {{ $category->products_count }}
-                        </span>
-                    </a>
-                @endforeach
+            <!-- Dropdown Filter Kategori Clean -->
+            <div class="flex items-center gap-3">
+                <label for="categoryFilter" class="text-xs font-semibold text-slate-500 whitespace-nowrap">
+                    <i class="fa-solid fa-filter me-1 text-brand-600"></i> Filter Kategori:
+                </label>
+                <div class="relative min-w-[220px]">
+                    <select id="categoryFilter" 
+                            onchange="window.location.href = this.value" 
+                            class="w-full pl-4 pr-10 py-2.5 rounded-full text-xs font-semibold bg-white text-slate-800 border border-slate-300 hover:border-slate-400 focus:outline-none focus:border-brand-600 focus:ring-1 focus:ring-brand-600 transition-all appearance-none cursor-pointer shadow-sm">
+                        <option value="{{ route('home') }}#katalog" {{ empty($selectedCategory) ? 'selected' : '' }}>
+                            Semua Kategori ({{ $categories->sum('products_count') }})
+                        </option>
+                        @foreach($categories as $category)
+                            <option value="{{ route('home', ['category' => $category->slug]) }}#katalog" {{ $selectedCategory === $category->slug ? 'selected' : '' }}>
+                                {{ $category->name }} ({{ $category->products_count }})
+                            </option>
+                        @endforeach
+                    </select>
+                    <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 text-xs pointer-events-none"></i>
+                </div>
             </div>
         </div>
 
-        <!-- Grid Produk Card -->
+        <!-- Grid Produk Card (Gitye Clean Card) -->
         @if($products->count() > 0)
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach($products as $product)
-                    <div class="group glass-panel rounded-2xl overflow-hidden hover:border-cyan-500/50 transition-all duration-300 hover:-translate-y-1.5 flex flex-col">
+                    <div class="gitye-card rounded-2xl overflow-hidden flex flex-col group">
                         
-                        <!-- Image Container with Fallback Tech Placeholder -->
-                        <div class="relative h-56 bg-slate-800/80 overflow-hidden flex items-center justify-center border-b border-slate-800">
+                        <!-- Image Container with Soft Tech Fallback -->
+                        <div class="relative h-60 bg-slate-50 overflow-hidden flex items-center justify-center border-b border-slate-100">
                             @if($product->image && (Storage::disk('public')->exists($product->image) || file_exists(public_path('storage/' . $product->image))))
                                 <img src="{{ asset('storage/' . $product->image) }}" 
                                      alt="{{ $product->name }}" 
                                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             @else
                                 <div class="text-center p-6 flex flex-col items-center justify-center">
-                                    <div class="w-16 h-16 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-3 group-hover:scale-110 transition-transform">
+                                    <div class="w-16 h-16 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
                                         @if(str_contains(strtolower($product->category->name), 'keyboard'))
                                             <i class="fa-solid fa-keyboard text-2xl"></i>
                                         @elseif(str_contains(strtolower($product->category->name), 'mouse'))
@@ -122,13 +157,13 @@
                                             <i class="fa-solid fa-display text-2xl"></i>
                                         @endif
                                     </div>
-                                    <span class="text-xs font-mono text-slate-400">{{ $product->category->name }}</span>
+                                    <span class="text-xs font-semibold text-slate-400">{{ $product->category->name }}</span>
                                 </div>
                             @endif
 
                             <!-- Kategori Badge -->
                             <div class="absolute top-3 left-3">
-                                <span class="px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-navy-900/90 text-cyan-300 border border-cyan-500/30 backdrop-blur-md">
+                                <span class="px-3 py-1 rounded-full text-[11px] font-semibold bg-white/95 text-slate-800 border border-slate-200 shadow-sm backdrop-blur-md">
                                     {{ $product->category->name }}
                                 </span>
                             </div>
@@ -136,11 +171,11 @@
                             <!-- Stok Status Badge -->
                             <div class="absolute top-3 right-3">
                                 @if($product->stock > 0)
-                                    <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                                    <span class="px-2.5 py-1 rounded-full text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
                                         Stok: {{ $product->stock }}
                                     </span>
                                 @else
-                                    <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30">
+                                    <span class="px-2.5 py-1 rounded-full text-[10px] font-semibold bg-rose-50 text-rose-700 border border-rose-200">
                                         Habis
                                     </span>
                                 @endif
@@ -150,38 +185,38 @@
                         <!-- Content Detail -->
                         <div class="p-6 flex-grow flex flex-col justify-between">
                             <div>
-                                <h3 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors line-clamp-1 mb-2">
+                                <h3 class="text-base font-display font-bold text-slate-900 group-hover:text-brand-600 transition-colors line-clamp-1 mb-1.5">
                                     {{ $product->name }}
                                 </h3>
-                                <p class="text-slate-400 text-xs leading-relaxed line-clamp-2 mb-4">
+                                <p class="text-slate-500 text-xs leading-relaxed line-clamp-2 mb-4">
                                     {{ $product->description }}
                                 </p>
                             </div>
 
-                            <div class="pt-4 border-t border-slate-800/80">
+                            <div class="pt-4 border-t border-slate-100">
                                 <div class="flex items-center justify-between mb-4">
                                     <div>
-                                        <div class="text-[10px] font-mono uppercase text-slate-400">Harga Satuan</div>
-                                        <div class="text-xl font-extrabold text-cyan-400 font-mono">
+                                        <div class="text-[10px] uppercase text-slate-400 font-medium">Harga Resmi</div>
+                                        <div class="text-xl font-display font-bold text-slate-900">
                                             Rp {{ number_format($product->price, 0, ',', '.') }}
                                         </div>
                                     </div>
                                     <div class="text-right">
-                                        <div class="text-[10px] font-mono uppercase text-slate-400">Garansi</div>
-                                        <div class="text-xs font-semibold text-slate-200">
-                                            <i class="fa-solid fa-shield-check text-cyan-400 me-1"></i>{{ $product->warranty }}
+                                        <div class="text-[10px] uppercase text-slate-400 font-medium">Garansi</div>
+                                        <div class="text-xs font-semibold text-slate-700">
+                                            <i class="fa-solid fa-shield-check text-brand-600 me-1"></i>{{ $product->warranty }}
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="grid grid-cols-2 gap-2">
                                     <a href="{{ route('public.product.show', $product->slug) }}" 
-                                       class="w-full text-center py-2.5 px-3 rounded-lg text-xs font-bold bg-slate-800 text-slate-200 hover:bg-slate-700 hover:text-white border border-slate-700 transition-colors">
+                                       class="w-full text-center py-2.5 px-3 rounded-xl text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-800 transition-colors">
                                         Detail Produk
                                     </a>
-                                    <a href="https://wa.me/6281234567890?text={{ urlencode('Halo Axion Tech, saya tertarik untuk memesan: ' . $product->name . ' (Rp ' . number_format($product->price, 0, ',', '.') . '). Apakah stok masih tersedia?') }}" 
+                                    <a href="https://wa.me/6281234567890?text={{ urlencode('Halo Axion Tech (PT Akses Digital Mandiri), saya ingin memesan produk: ' . $product->name . ' seharga Rp ' . number_format($product->price, 0, ',', '.')) }}" 
                                        target="_blank"
-                                       class="w-full text-center py-2.5 px-3 rounded-lg text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow-md shadow-emerald-900/30 transition-all flex items-center justify-center gap-1.5">
+                                       class="w-full text-center py-2.5 px-3 rounded-xl text-xs font-bold bg-slate-900 hover:bg-brand-600 text-white transition-all flex items-center justify-center gap-1.5 shadow-sm">
                                         <i class="fa-brands fa-whatsapp text-sm"></i> Pesan
                                     </a>
                                 </div>
@@ -198,14 +233,14 @@
             </div>
         @else
             <!-- State Kosong -->
-            <div class="text-center py-16 glass-panel rounded-2xl border border-slate-800">
-                <i class="fa-solid fa-box-open text-5xl text-slate-600 mb-4"></i>
-                <h3 class="text-lg font-bold text-white mb-2">Belum Ada Produk di Kategori Ini</h3>
-                <p class="text-sm text-slate-400 max-w-md mx-auto mb-6">
-                    Kategori yang Anda pilih saat ini belum memiliki item inventaris yang tersedia.
+            <div class="text-center py-16 bg-white rounded-3xl border border-slate-200">
+                <i class="fa-solid fa-box-open text-4xl text-slate-400 mb-3"></i>
+                <h3 class="text-base font-bold text-slate-800 mb-1">Belum Ada Produk di Kategori Ini</h3>
+                <p class="text-xs text-slate-500 max-w-sm mx-auto mb-4">
+                    Silakan pilih kategori lainnya atau reset filter ke seluruh produk.
                 </p>
-                <a href="{{ route('home') }}#katalog" class="px-5 py-2.5 rounded-lg text-xs font-bold bg-cyan-500 text-navy-900">
-                    Kembali ke Semua Produk
+                <a href="{{ route('home') }}#katalog" class="px-5 py-2 rounded-full text-xs font-bold bg-slate-900 text-white">
+                    Tampilkan Semua
                 </a>
             </div>
         @endif
